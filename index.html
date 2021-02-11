@@ -30,7 +30,7 @@
                     <span>Entradas</span>
                     <img src="./assets/income.svg" alt="image de entradas">
                 </h3>
-                <p>R$ 5.000,00</p>
+                <p id="incomeDisplay" >R$ 0,00</p>
             </div>
 
             <div class="card">
@@ -38,7 +38,7 @@
                     <span>Saídas</span>
                     <img src="./assets/expense.svg" alt="image de entradas">
                 </h3>
-                <p>R$ 2.000,00</p>
+                <p id="expenseDisplay" >R$ 0,00</p>
             </div>
 
             <div class="card total">
@@ -46,7 +46,7 @@
                     <span>Total</span>
                     <img src="./assets/total.svg" alt="image de entradas">
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="totalDisplay" >R$ 0,00</p>
             </div>
 
         </section>
@@ -54,7 +54,10 @@
         <section id='transaction'>
             <h2 class='sr-only'>Transações</h2>
 
-            <a href="#" class="button new" onclick="Modal.open()">+ Nova Transação</a>
+            <a 
+            href="#" 
+            class="button new" 
+            onclick='Modal.toggle()'>+ Nova Transação</a>
 
             <table id="data-table">
                 <thead>
@@ -66,41 +69,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="desciption">Luz</td>
-                        <td class='expense'>- R$ 500,00</td>
-                        <td class='date'>23/01/2021</td>
-                        <td>
-                            <img src="./assets/minus.svg" alt="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="desciption">Criação de website</td>
-                        <td class='income'>- R$ 5.000,00</td>
-                        <td class='date'>23/01/2021</td>
-                        <td>
-                            <img src="./assets/minus.svg" alt="">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="desciption">Internet</td>
-                        <td class='expense'>- R$ 200,00</td>
-                        <td class='date'>23/01/2021</td>
-                        <td>
-                            <img src="./assets/minus.svg" alt="">
-                        </td>
-                    </tr>
+                    
                 </tbody>
             </table>
-
-
         </section>
     </main>
+
     <div class="modal-overlay">
         <div class="modal">
             <div id="form">
                 <h2>Nova Transsação</h2>
-                <form action="#">
+                <form action="" onsubmit = 'Form.submit(event)' >
                     <div class="input-group">
                         <label 
                         for="description" 
@@ -110,7 +89,9 @@
                         type="text" 
                         id="description" 
                         name="description" 
-                        placeholder="Descrição">
+                        placeholder="Descrição"
+                        required
+                        >
                     </div>
 
                     <div class="input-group">
@@ -124,6 +105,7 @@
                             name="amount" 
                             placeholder="Valor"
                             step="0.01"
+                            required
                         >
                         <small class='help'>use o sinal -(negativo) para despesas e,(vírgula)para casas</small>
                     </div>
@@ -137,11 +119,13 @@
                         type="date" 
                         id="date" 
                         name="date" 
-                        placeholder="01/01/2021">
+                        placeholder="01/01/2021"
+                        required
+                        >
                     </div>
 
                     <div class="input-group actions">
-                        <a href="" class="button cancel" onclick='Modal.close()'>Cancelar</a>
+                        <a href="" class="button cancel" onclick='Modal.toggle()'>Cancelar</a>
                         <button>Salvar</button>
                     </div>
                 </form>
@@ -151,7 +135,7 @@
     <footer>
         <p>Dev.finance</p>
     </footer>
-    <script src="./script.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
