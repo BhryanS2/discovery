@@ -1,0 +1,13 @@
+@media(min-width: 800px) {
+    html {
+        font-size: 87.5%;
+    }
+
+    #balance {
+        display: grid;
+        /* colunas */
+        grid-template-columns: repeat(3, 1fr);
+        /* espaço entre colunas */
+        gap: 2rem;
+    }
+}
